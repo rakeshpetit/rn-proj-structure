@@ -1,5 +1,5 @@
 import {takeEvery, all} from 'redux-saga/effects';
-import * as NavigationService from './NavigationService';
+import * as NavigationService from '../navigators/NavigationService';
 
 function* goToProfile() {
   console.log('Navigate to Profile!');

@@ -9,13 +9,13 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 
-import AppContainer from './Navigator';
+import AppContainer from './src/navigators/Navigator';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import friendReducer from './AppReducer';
-import rootSaga from './AppSagas';
-import * as NavigationService from './NavigationService';
+import friendReducer from './src/reducers/AppReducer';
+import rootSaga from './src/sagas/AppSagas';
+import * as NavigationService from './src/navigators/NavigationService';
 
 const sagaMiddleware = createSagaMiddleware();
 
