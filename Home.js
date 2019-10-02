@@ -3,14 +3,15 @@ import {StyleSheet, Text, View, Button} from 'react-native';
 import {connect} from 'react-redux';
 
 class Home extends React.Component {
+  onPressButton = () => {
+    this.props.sendTheAlert();
+    this.props.navigation.navigate('Profile');
+  };
   render() {
     return (
       <View style={styles.container}>
         <Text>We have {this.props.friends.possible.length} friends!</Text>
-        <Button
-          title="Add some friends"
-          onPress={() => this.props.navigation.navigate('Profile')}
-        />
+        <Button title="Add some friends" onPress={this.onPressButton} />
       </View>
     );
   }
@@ -25,9 +26,20 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    sendTheAlert: () => {
+      dispatch({type: 'INCREMENT_ASYNC'});
+    },
+  };
+};
+
 const mapStateToProps = state => {
   const {friends} = state;
   return {friends};
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);

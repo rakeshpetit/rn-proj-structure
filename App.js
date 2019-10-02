@@ -11,11 +11,15 @@ import {StatusBar} from 'react-native';
 
 import AppContainer from './Navigator';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import friendReducer from './AppReducer';
+import rootSaga from './AppSagas';
 
-const store = createStore(friendReducer);
+const sagaMiddleware = createSagaMiddleware();
 
+const store = createStore(friendReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 const App: () => React$Node = () => {
   return (
     <>
