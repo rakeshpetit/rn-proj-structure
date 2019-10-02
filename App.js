@@ -15,6 +15,7 @@ import {createStore, applyMiddleware} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import friendReducer from './AppReducer';
 import rootSaga from './AppSagas';
+import * as NavigationService from './NavigationService';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -25,7 +26,7 @@ const App: () => React$Node = () => {
     <>
       <Provider store={store}>
         <StatusBar barStyle="dark-content" />
-        <AppContainer />
+        <AppContainer ref={nav => NavigationService.setNavigator(nav)} />
       </Provider>
     </>
   );

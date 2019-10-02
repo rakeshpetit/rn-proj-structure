@@ -4,8 +4,7 @@ import {connect} from 'react-redux';
 
 class Home extends React.Component {
   onPressButton = () => {
-    this.props.sendTheAlert();
-    this.props.navigation.navigate('Profile');
+    this.props.goToProfile();
   };
   render() {
     return (
@@ -28,8 +27,8 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendTheAlert: () => {
-      dispatch({type: 'INCREMENT_ASYNC'});
+    goToProfile: () => {
+      dispatch({type: 'GO_TO_PROFILE'});
     },
   };
 };
