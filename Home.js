@@ -9,7 +9,7 @@ class Home extends React.Component {
         <Text>We have {this.props.friends.possible.length} friends!</Text>
         <Button
           title="Add some friends"
-          onPress={() => this.props.navigation.navigate('Friends')}
+          onPress={() => this.props.navigation.navigate('Profile')}
         />
       </View>
     );
