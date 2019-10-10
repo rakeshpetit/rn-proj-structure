@@ -1,6 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {Text, View, Button} from 'react-native';
 import {connect} from 'react-redux';
+import styles from '../../styles/Home.scss';
 
 class Home extends React.Component {
   onPressButton = () => {
@@ -15,15 +16,6 @@ class Home extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 const mapDispatchToProps = dispatch => {
   return {

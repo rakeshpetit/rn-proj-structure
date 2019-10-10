@@ -1,0 +1,24 @@
+%blue {
+  color: blue;
+}
+.myClass {
+  @extend %blue;
+}
+.myOtherClass {
+  color: red;
+}
+.my-dashed-class {
+  color: green;
+}
+%containerBack {
+  background-color: yellowgreen;
+}
+%center {
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    flex: 1;
+    @extend %center;
+    @extend %containerBack;    
+  }
