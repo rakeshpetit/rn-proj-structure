@@ -7,7 +7,7 @@
   @extend %blue;
 }
 .myOtherClass {
-  color: red;
+  color: $alert_red;
 }
 .my-dashed-class {
   color: green;
@@ -20,7 +20,8 @@
     justify-content: center;
 }
 .container {
-    flex: 1;
+    flex-grow: 1;
+    padding-top: 10;
     @extend %center;
     @extend %containerBack;    
   }

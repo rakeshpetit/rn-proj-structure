@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, TouchableOpacity, FlatList, View, Button} from 'react-native';
 import {connect} from 'react-redux';
 import styles from '../../styles/Home.scss';
 
@@ -10,8 +10,21 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>We have {this.props.friends.possible.length} friends!</Text>
-        <Button title="Add some friends" onPress={this.onPressButton} />
+        <View style={{flex: 1}}>
+          <Text>We have {this.props.friends.possible.length} friends!</Text>
+        </View>
+        <View style={{flex: 1}}>
+          <FlatList
+            data={this.props.friends.possible}
+            renderItem={({item}) => (
+              <TouchableOpacity style={{fontSize: 20}}>{item}</TouchableOpacity>
+            )}
+            keyExtractor={(item, index) => index}
+          />
+        </View>
+        <View style={{flex: 1}}>
+          <Button title="Add some friends" onPress={this.onPressButton} />
+        </View>
       </View>
     );
   }
